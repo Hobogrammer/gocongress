@@ -47,9 +47,10 @@ Gocongress::Application.routes.draw do
         # models, not just Attendee, so it's handled by the
         # registrations controller.
         resources :registrations, :except => [:show, :destroy]
-        resources :attendees, :only => [:index] do
+        resources :attendees, :only => [:index, :edit_multiple] do
           collection do
             get 'vip'
+            get 'edit'
           end
           member do
             get 'print_summary', :as => 'print_summary_for'
