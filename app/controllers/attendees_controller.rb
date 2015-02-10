@@ -19,4 +19,12 @@ class AttendeesController < ApplicationController
   def vip
     @attendees = Attendee.yr(@year).where('rank >= 101').order('rank desc')
   end
+
+  def edit_multiple
+    @who_is_coming = Attendee::WhoIsComing.new @year, params[:sort], params[:direction]
+  end
+
+  def bulk_update
+    
+  end
 end
